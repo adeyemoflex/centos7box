@@ -11,3 +11,50 @@ Vagrant.configure("2") do |config|
     		end
 	end
 end
+
+
+#	CREATING MULTIPLE VMS. All YOU NEED TO DO IS UNCOMMENT AND EDIT TO YOUR TASTE#
+
+#Vagrant.configure("2") do |config|
+#       config.vm.box = "centos/7"
+#        config.vm.box_version = "2004.01"
+#       config.vm.provider "virtualbox" do |v|
+#           v.memory = 2048
+#
+#   end
+
+
+# SERVER ONE#
+#config.vm.define "node1" do |node1|
+#  node1.vm.network "private_network", ip: "10.23.45.42"
+#  node1.vm.provision "shell", inline: <<-SHELL
+#       Sudo yum clean all -y
+#       sudo yum update -y
+#     SHELL
+#  end
+
+# SERVER TWO#
+#config.vm.define "node2" do |node2|
+#   node2.vm.network "private_network", ip: "10.23.45.44"
+#   node2.vm.provision "shell", inline: <<-SHELL
+#        sudo yum clean all -y
+#        sudo yum update -y
+#     SHELL
+#  end
+
+# SERVER THREE#
+#    config.vm.define "node3" do |node3|
+#    node3.vm.network "private_network", ip: "10.23.45.46"
+#    node3.vm.provision "SHELL", inline: <<-SHELL
+#         sudo yum clean all -y
+#         sudo yum update -y
+#     SHELL
+#   end
+
+#config.vm.provision "shell", inline: <<-SHELL
+#     sudo yum clean all
+#     sudo yum update -y
+#   SHELL
+
+#end
+
