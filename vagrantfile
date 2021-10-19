@@ -46,7 +46,7 @@ end
 # SERVER THREE#
 #    config.vm.define "node3" do |node3|
 #    node3.vm.network "private_network", ip: "10.23.45.46"
-#    node3.vm.provision "SHELL", inline: <<-SHELL
+#    node3.vm.provision "shell", inline: <<-SHELL
 #         sudo yum clean all -y
 #         sudo yum update -y
 #     SHELL
