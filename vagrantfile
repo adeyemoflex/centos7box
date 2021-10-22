@@ -13,49 +13,64 @@ Vagrant.configure("2") do |config|
 end
 
 
-#	CREATING MULTIPLE VMS. All YOU NEED TO DO IS UNCOMMENT AND EDIT TO YOUR TASTE#
+#       CREATING MULTIPLE VMS. All YOU NEED TO DO IS UNCOMMENT AND EDIT TO YOUR TASTE#
 #  run the this command to bing all the machine up ==>vagrant up --provider=virtualbox
 
 #Vagrant.configure("2") do |config|
 #       config.vm.box = "centos/7"
-#        config.vm.box_version = "2004.01"
+#       config.vm.box_version = "2004.01"
+#       config.vm.boot_timeout = 600
 #       config.vm.provider "virtualbox" do |v|
 #           v.memory = 2048
 #
-#   end
+#  end
+#
 
+
+#       CONTROL SERVER
+#config.vm.define "controlserver" do |controlserver|
+#    controlserver.vm.network "private_network", ip: "192.168.33.26"
+#    controlserver.vm.hostname = "controlserver"
+#    controlserver.vm.provision "shell", inline: <<-SHELL
+#        yum clean all -y
+#        yum update -y
+#     SHELL
+#  end
 
 # SERVER ONE#
-#config.vm.define "node1" do |node1|
-#  node1.vm.network "private_network", ip: "10.23.45.42"
-#  node1.vm.provision "shell", inline: <<-SHELL
-#       sudo yum clean all -y
-#       sudo yum update -y
-#     SHELL
+#config.vm.define "server1" do |server1|
+#  server1.vm.network "private_network", ip: "192.168.33.20"
+#  server1.vm.hostname = "server1"
+  #server1.vm.provision "shell", inline: <<-SHELL
+#  #     yum clean all -y
+#  #     yum update -y
+#  #   SHELL
 #  end
 
 # SERVER TWO#
-#config.vm.define "node2" do |node2|
-#   node2.vm.network "private_network", ip: "10.23.45.44"
-#   node2.vm.provision "shell", inline: <<-SHELL
-#        sudo yum clean all -y
-#        sudo yum update -y
-#     SHELL
-#  end
+#config.vm.define "server2" do |server2|
+#   server2.vm.network "private_network", ip: "192.168.33.22"
+#   server2.vm.hostname = "server2"
+#   #server2.vm.provision "shell", inline: <<-SHELL
+#   #     yum clean all -y
+#   #     yum update -y
+#   #  SHELL
+# end
 
 # SERVER THREE#
-#    config.vm.define "node3" do |node3|
-#    node3.vm.network "private_network", ip: "10.23.45.46"
-#    node3.vm.provision "shell", inline: <<-SHELL
-#         sudo yum clean all -y
-#         sudo yum update -y
-#     SHELL
+#    config.vm.define "server3" do |server3|
+#    server3.vm.network "private_network", ip: "192.168.33.24"
+#    server3.vm.hostname = "server3"
+#    #server3.vm.provision "shell", inline: <<-SHELL
+#    #     yum clean all -y
+#    #     yum update -y
+#    # SHELL
 #   end
 
-#config.vm.provision "shell", inline: <<-SHELL
-#     sudo yum clean all
-#     sudo yum update -y
-#   SHELL
-
 #end
-
+#config.vm.provision "shell", inline: <<-SHELL
+#     yum clean all
+#     yum update -y
+#   SHELL
+#
+#end
